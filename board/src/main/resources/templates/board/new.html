@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ArticleList</title>
+</head>
+<body>
+<form action="/board/new" method="post" enctype="multipart/form-data">
+    <div th:if="${name == null}">
+        <label for="작성자" th:text="작성자"></label>
+        <input required id="작성자" name="name">
+    </div>
+
+    <div th:unless="${name == null}">
+        <label for="작성자2" th:text="작성자"></label>
+        <input required id="작성자2" name="name" th:value="${name}" readonly>
+    </div>
+
+    <div>
+        <label for="attach">첨부파일 : </label>
+        <input id="attach" name="file" type="file">
+    </div>
+
+    <div>
+        <label for="제목" th:text="제목"></label>
+        <input required id="제목" name="title">
+    </div>
+
+    <div>
+        <label for="내용">내용</label>
+        <textarea required id="내용" name="content"></textarea>
+    </div>
+
+    <input type="hidden" name="id" th:value="${id}">
+
+    <button type="submit" th:text="작성"></button>
+    <button type="button" th:onClick="history.back()" th:text="취소"></button>
+</form>
+</body>
+</html>

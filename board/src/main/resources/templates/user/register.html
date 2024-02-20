@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <form th:action="@{/user/register}" method="post">
+
+        <div>
+            <label th:text="'아 이 디 :'" for="id"></label>
+            <input id="id" name="userId">
+        </div>
+
+        <div>
+            <label th:text="'이  름 :'" for="name"></label>
+            <input id="name" name="name">
+        </div>
+
+        <div>
+            <label th:text="'비밀번호 :'" for="password"></label>
+            <input id="password" name="password" type="password">
+        </div>
+
+        <div>
+            <label th:text="'비밀번호 확인 :'" for="checkPwd"></label>
+            <input id="checkPwd" name="checkPwd" type="password">
+        </div>
+
+        <div>
+            <button type="submit" th:text="회원가입" th:onclick="|location.href='@{/user/login}'|"></button>
+            <button type="button" th:onClick="|location.href='@{/board}'|" th:text="취소"></button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ArticleList</title>
+</head>
+<body>
+<div>
+    <span th:text="'아이디 : '"></span>
+    <span th:text="${data.id}"></span>
+</div>
+
+<div th:if="${file.saveName == null}"></div>
+<div th:unless="${file.saveName == null}">
+    <a th:text="${file.originName}" th:href="@{'/board/download/' + ${file.saveName}}"></a>
+</div>
+
+<div>
+    <span th:text="'작성자 : '"></span>
+    <span th:text="${data.name}"></span>
+</div>
+
+<div>
+    <span th:text="'제  목 : '"></span>
+    <span th:text="${data.title}"></span>
+</div>
+
+
+<div>
+    <span th:text="${data.content}"></span>
+</div>
+
+<div>
+    <button type="button" th:onClick="|location.href='@{/board/{id}/reply (id=${data.id})}'|" th:text="답글달기"></button>
+    <button type="button" th:onClick="|location.href='@{/board}'|" th:text="돌아가기"></button>
+</div>
+
+</body>
+</html>
