@@ -44,8 +44,6 @@ public class BoardController {
                 map(GetArticleResponse::new).
                 collect(Collectors.toList());
 
-        ;
-
         model.addAttribute("list", list);
         model.addAttribute("pageSize", pageSize);
         model.addAttribute("pageNumber", pageNumber);
@@ -112,6 +110,7 @@ public class BoardController {
         }
         return "redirect:/board";
     }
+
     @GetMapping("/download/{downName}")
     public void downloadFile(@PathVariable String downName, HttpServletResponse response) {
 
@@ -136,7 +135,7 @@ public class BoardController {
             inputStream.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("다운로드 실패염;", e);
         }
     }
 

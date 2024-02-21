@@ -39,7 +39,7 @@ public class UserService {
     }
 
     public void loginUser(LoginRequest request) {
-//        아이디찾기, 비밀번호 찾기
+//        아이디 확인
         UserEntity checkId = userRepository.findById(request.getUserId());
 
         if (checkId == null){

@@ -46,9 +46,13 @@
         <button type="submit" th:text="검색"></button>
     </form>
 
-    <div>
-        <button th:onClick="|location.href='@{board/new}'|" th:text="'새 글쓰기'"></button>
-        <button th:onClick="|location.href='@{board/recently-view}'|" th:text="'최근 본 목록'"></button>
+    <div th:if="${userId != null}">
+        <button th:onClick="|location.href='@{/board/new}'|" th:text="'새 글쓰기'"></button>
+        <button th:onClick="|location.href='@{/board/recently-view}'|" th:text="'최근 본 목록'"></button>
+    </div>
+
+    <div th:unless="${userId != null}">
+        <button th:onClick="|location.href='@{/board/new}'|" th:text="'새 글쓰기'"></button>
     </div>
 
     <div>
