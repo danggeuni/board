@@ -23,8 +23,8 @@ public class UserController {
     }
 
     @GetMapping("/register")
-    public String AddUser(Model model, String checkPwd){
-        model.addAttribute("data", new AddUserRequest());
+    public String AddUser(Model model, String checkPwd, String userId, String name, String password){
+        model.addAttribute("data", new AddUserRequest(userId, name, password));
         model.addAttribute("checkPwd", checkPwd);
         return "user/register";
     }
@@ -36,8 +36,8 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String loginUser(Model model){
-        model.addAttribute("data", new LoginRequest());
+    public String loginUser(Model model, String userId, String password){
+        model.addAttribute("data", new LoginRequest(userId, password));
         return "user/login";
     }
 

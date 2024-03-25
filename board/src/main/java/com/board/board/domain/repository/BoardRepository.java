@@ -45,7 +45,6 @@ public class BoardRepository {
             jdbcTemplate.update("INSERT INTO BOARD (NAME, TITLE, CONTENTS, GROUP_ID, SORT_KEY, DEPTH, WRITE_DATE) VALUES (?, ?, ?, ?, ?, ?, ?)",
                     entity.getName(), entity.getTitle(), entity.getContent(), entity.getGroupId(), entity.getSortKey(), entity.getDepth(), entity.getCreateDate());
         }
-
         return entity;
     }
 

@@ -115,11 +115,9 @@ public class BoardController {
     public void downloadFile(@PathVariable String downName, HttpServletResponse response) {
 
         try {
+            response.setContentType("application/octet-stream");
             String filePath = "C:/Temp/" + downName;
             InputStream inputStream = new FileInputStream(filePath);
-
-            response.setContentType("application/octet-stream");
-
             OutputStream outputStream = response.getOutputStream();
 
             byte[] data = new byte[1024];

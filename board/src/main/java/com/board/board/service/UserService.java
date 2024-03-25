@@ -33,9 +33,9 @@ public class UserService {
         // 비밀번호 암호화
         Encryption encryption = new Encryption();
         String encryptPwd = encryption.getEncrypt(request.getPassword(), encryption.salt);
-        request.setPassword(encryptPwd);
+        AddUserRequest update = new AddUserRequest(request.getUserId(), request.getName(), encryptPwd);
 
-        userRepository.registerUser(request.toEntity());
+        userRepository.registerUser(update.toEntity());
     }
 
     public void loginUser(LoginRequest request) {
